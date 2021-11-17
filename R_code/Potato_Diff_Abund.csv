@@ -1,0 +1,27 @@
+Name,OTU,Level,Baseline,Potato,Refined,Baseline_sig,Potato_sig,Refined_sig
+Prevotella,NA,Genus,1.01,0.259,1.67,NA,NA,*
+Mediterraneibacter ,NA,Genus,1.238,1.247,1.714,NA,NA,*
+[Ruminococcus]_b,NA,Genus,0.62,0.379,0.861,NA,NA,*
+Hungatella,NA,Genus,0.357,0.41,0.217,NA,***,NA
+Streptococcus,NA,Genus,0.203,0.195,0.451,NA,NA,*
+Romboutsia,NA,Genus,0.235,0.225,0.373,NA,NA,*
+Faecalicatena,NA,Genus,0.029,0.132,0.057,NA,*,NA
+Veillonella,NA,Genus,0.021,0.012,0.049,NA,NA,*
+Bacteroidetes,NA,Phylum,42.5,41.2,40.6,NA,NA,NA
+Firmicutes,NA,Phylum,49.4,49.9,50.5,NA,NA,NA
+Actinobacteria,NA,Phylum,2.08,3.12,3.63,NA,NA,NA
+Verrucomicrobia,NA,Phylum,4.17,4.10,3.48,NA,NA,NA
+Proteobacteria,NA,Phylum,1.34,1.30,1.39,NA,NA,NA
+Synergistetes,NA,Phylum,0.016,0.047,0.022,NA,NA,NA
+Fusobacteria,NA,Phylum,0.004,0.002,0.02,NA,NA,NA
+Lentisphaerae,NA,Phylum,0.005,0.007,0.001,NA,NA,NA
+Candidatus_Saccharibacteria,NA,Phylum,0.001,0.002,0.002,NA,NA,NA
+Hungatella xylanolytica,Otu00056,Species,0.356,0.391,0.205,NA,***,NA
+Streptococcus thermophilus,Otu00057,Species,0.167,0.181,0.322,NA,NA,*
+Roseburia faecis ,Otu00098,Species,0.253,0.255,0.066,NA,***,NA
+Bacteroides_unclassified,Otu00104,Species,0.146,0.311,0.064,NA,*,NA
+Bacteroides stercoris,Otu00125,Species,0.137,0.209,0.053,NA,*,NA
+Oscillibacter_unclassified,Otu00166,Species,0.066,0.07,0.05,NA,*,NA
+Lachnospiraceae_unclassified,Otu00202,Species,0.026,0.055,0.038,NA,*,NA
+Bacteroides_unclassified,Otu00604,Species,0.006,0.010,0.005,NA,*,NA
+Fusicaten saccharivorans,Otu00688,Species,0.003,0.004,0.009,NA,NA,*
