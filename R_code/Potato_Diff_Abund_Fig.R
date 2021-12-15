@@ -61,5 +61,6 @@ ggplot(plot_vals, aes(x = Treatment, y = Name)) +
   scale_fill_gradient2(low="blue", mid = "white", high=muted("red"), midpoint = 0.5) +
   scale_x_discrete(label=Lab_txt) + 
   labs(y = "Taxa") +
+  labs(x = "Condition") +
   geom_text(data = sig_dat, label = plot_sigs$Sig)
 dev.off()
