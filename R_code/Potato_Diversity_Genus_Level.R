@@ -63,32 +63,35 @@ inv_simp <- 1/estimates2
 plot_sample <- data.frame(Group=rownames(sample), Diet=sample$Diet, Shannon=estimates, invSimp=inv_simp, Faith=Faith_d.rar$PD)
 plot_sample$Diet <- factor(plot_sample$Diet, levels = c("BL", "Pot", "Ref") )
 
-tiff("Genus_Shannon_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("Genus_Shannon_Diet2.tiff", units="in", width=5, height=5, res=300)
 ggplot(plot_sample, aes(Diet, Shannon)) + 
   geom_boxplot() + 
   ggtitle("Genus-level Shannon Diversity") + 
   theme (plot.title = element_text(hjust = 0.5)) +
   geom_signif(comparisons = list(c("Pot", "Ref")), map_signif_level = TRUE, annotations = c("* p=0.023"), textsize = 5) +
-  ylim(NA,4)
+  ylim(NA,4) +
+  xlab("Condition")
 dev.off()
 
-tiff("Genus_Inverse_Simpson_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("Genus_Inverse_Simpson_Diet2.tiff", units="in", width=5, height=5, res=300)
 ggplot(plot_sample, aes(Diet, invSimp)) + 
   geom_boxplot() +
   ggtitle("Genus-level Inverse Simpson Diversity") +
   theme (plot.title = element_text(hjust = 0.5)) +
   geom_signif(comparisons = list(c("Pot", "Ref")), map_signif_level = TRUE, annotations = c("** p=0.004"), textsize = 5) +
   ylim(NA,20) + 
-  ylab("Inverse Simpson")
+  ylab("Inverse Simpson") +
+  xlab("Condition")
 dev.off()
 
-tiff("Genus_Faith_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("Genus_Faith_Diet2.tiff", units="in", width=5, height=5, res=300)
 ggplot(plot_sample, aes(Diet, Faith)) + 
   geom_boxplot() +
   ggtitle("Genus-level Faith's Phylogenetic Diversity") +
   theme (plot.title = element_text(hjust = 0.5)) +
   geom_signif(comparisons = list(c("Pot", "Ref")), map_signif_level = TRUE, annotations = c("N.S. p=0.767"), textsize = 5) +
-  ylim(NA,24)
+  ylim(NA,24) +
+  xlab("Condition")
 dev.off()
 
 ###Bray-Curtis Distance via DivNet###
@@ -98,10 +101,11 @@ b_div_bray <- as.dist(a_div$`bray-curtis`)
 b_div_bray_pcoa <- ordinate(physeq_gen, method="PCoA", distance=b_div_bray) 
 
 
-tiff("DivNet_Genus_Bray_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("DivNet_Genus_Bray_Diet2.tiff", units="in", width=5, height=5, res=300)
 plot_ordination(physeq_gen, b_div_bray_pcoa, type ="samples", color = "Diet") +
   ggtitle("Bray-Curtis Dissimilarity") +
-  theme (plot.title = element_text(hjust = 0.5))
+  theme (plot.title = element_text(hjust = 0.5)) +
+  labs(color="Condition")
 dev.off()
 
 #Test for significance
@@ -123,10 +127,11 @@ clr_ait <- dist(otu.clr, method='euc')
 b_div_ait_pcoa <- ordinate(physeq_gen, method="PCoA", distance=clr_ait)
 
 
-tiff("Genus_Aitchison_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("Genus_Aitchison_Diet2.tiff", units="in", width=5, height=5, res=300)
 plot_ordination(physeq_gen, b_div_ait_pcoa, type ="samples", color = "Diet") +
   ggtitle("Aitchison Distance") +
-  theme (plot.title = element_text(hjust = 0.5))
+  theme (plot.title = element_text(hjust = 0.5)) +
+  labs(color="Condition")
 dev.off()
 
 write("\nGenus Level Diet and Aitchison Diversity Test", file= "PERMANOVA_results.txt", append=TRUE)
@@ -141,10 +146,11 @@ capture.output(adonis(formula = clr_ait ~ Diet*Sex + Diet*Age_med + Diet*BMI_OW,
 dist_gen_rar_uniw <- phyloseq::UniFrac(physeq_gen.rar, weighted = TRUE)
 gen_rar_uniw_pcoa <- ordinate(physeq_gen.rar, method="PCoA", distance=dist_gen_rar_uniw)
 
-tiff("Genus_UnifracW_Diet.tiff", units="in", width=5, height=5, res=300)
+tiff("Genus_UnifracW_Diet2.tiff", units="in", width=5, height=5, res=300)
 plot_ordination(physeq_gen.rar, gen_rar_uniw_pcoa, type ="samples", color = "Diet") +
   ggtitle("Weighted UniFrac") +
-  theme (plot.title = element_text(hjust = 0.5))
+  theme (plot.title = element_text(hjust = 0.5)) +
+  labs(color="Condition")
 dev.off()
 
 write("\nGenus Level Diet and Weighted Unifrac Diversity Test", file= "PERMANOVA_results.txt", append=TRUE)
